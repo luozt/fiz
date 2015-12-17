@@ -6,6 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luozt/fiz.git"
+  },
+  "keywords": [
+    "fis",
+    "fis3",
+    "fiz"
+  ],
   "author": "LUOZHITAO",
   "license": "MIT",
   "dependencies": {
