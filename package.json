@@ -1,6 +1,6 @@
 {
   "name": "fiz",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "fiz integrates fis3 and fis3 plugins",
   "main": "index.js",
   "scripts": {
