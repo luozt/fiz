@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "fiz": "fiz.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/luozt/fiz.git"
@@ -29,5 +32,8 @@
     "jade-highlighter": "^2.0.0",
     "liftoff": "^2.2.0",
     "minimist": "^1.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/luozt/fiz/issues"
   }
 }
