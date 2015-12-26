@@ -12,21 +12,22 @@ FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/�
 
 1、用作替代fis3的命令：`fiz release -w`
 
-2、用以快速初始化开发项目
+2、用以快速初始化开发项目：
 
-`fiz clone web`：快速构建FIZ定制的PC或者mobile开发目录
+* `fiz clone web`：快速构建FIZ定制的PC或者mobile开发目录
 
 ## FIZ规范的开发目录
 
 FIZ的开发目录结构：
 
 ```
-src           //存放该项目源码
-|--js
-|--css
-|--lib
+src/           //存放该项目源码
+|--js/
+|--css/
+|--lib/
+|--index.html
 |
-README.md     //说明文档
+README.md      //说明文档
 |
-fis-conf.js   //fis配置文件
+fis-conf.js    //fis配置文件
 ```
