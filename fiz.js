@@ -16,6 +16,27 @@ var cli = new Liftoff({
   }
 });
 
+//同步生成文件夹
+function mkdirsSync(dirpath, mode) {
+  if (!fs.existsSync(dirpath)) {
+    var pathtmp = "";
+    dirpath.split(path.sep).forEach(function(dirname) {
+      if (pathtmp) {
+        pathtmp = path.join(pathtmp, dirname);
+      } else {
+        pathtmp = dirname;
+      }
+
+      if (!fs.existsSync(pathtmp)) {
+        if (!fs.mkdirSync(pathtmp, mode)) {
+          return false;
+        }
+      }
+    });
+  }
+  return true;
+}
+
 cli.launch({
   cwd: argv.r || argv.root,
   configPath: argv.f || argv.file
@@ -23,16 +44,78 @@ cli.launch({
   //捕获命令行
   var command = argv["_"];
 
-  //引用fis
-  var fis;
-  if(!env.modulePath){
-    fis = require("./");
-  }else{
-    fis = require(env.modulePath);
+  //git clone项目
+  if("clone" == command[0]){
+    //提供的服务
+    var targetHash = {
+      "web": {
+        name: "web-template",
+        url: "https://git.oschina.net/luozt007/web-template.git"
+      }
+    };
+
+    //检测是否存在该服务
+    var cmd1 = command[1];
+    var targetObj = targetHash[cmd1];
+    if(!targetObj){
+      console.log("Not such \"" + cmd1 + "\" get-target!");
+      return false;
+    }
+
+    var noDir = !!argv["n"];
+    var folder = targetObj.name;
+    var childProcess = require("child_process");
+    var exec = childProcess.exec;
+
+    console.log("start get [ " + cmd1 + " ]");
+
+    var child = exec("git clone " + targetObj.url, function(err, stdout, stderr){
+      if(err){
+        console.log("git clone err: " + err);
+        return;
+      }
+
+      console.log("get [ " + cmd1 + " ] success");
+
+      var child2 = exec("rm -rf " + folder + "/.git", function(err, stdout){
+        if (err){
+          console.log("rm "+ folder +"/.git error");
+          return;
+        }
+
+        if (noDir){
+          var child3 = exec("cp -rf " + folder + "/* ./", function(err, stdout){
+            if(err){
+              console.log("cp " + folder + " folder error");
+              return;
+            }
+
+            var child4 = exec("rm -rf " + folder, function(err, stdout){
+              if (err){
+                console.log("rm "+ folder +" folder error")
+                return;
+              }
+            });
+          });
+        }
+      });
+    });
+
   }
 
-  fis.set("system.localNPMFolder", path.join(env.cwd, "node_modules/fiz"));
-  fis.cli.run(argv, env);
+  //引用fis
+  else{
+    var fis;
+    if(!env.modulePath){
+      fis = require("./");
+    }else{
+      fis = require(env.modulePath);
+    }
+
+    fis.set("system.localNPMFolder", path.join(env.cwd, "node_modules/fiz"));
+    //fis.set('system.globalNPMFolder', path.dirname(__dirname));
+    fis.cli.run(argv, env);
+  }
 
 });
 

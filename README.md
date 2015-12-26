@@ -6,11 +6,19 @@ FIZ整合了fis3和众多fis3插件，使开发者无需逐一安装多个fis3�
 
 FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/模板语言。
 
-
 ## usage
 
-FIZ的开发目录结构：
+**必须在全局安装FIZ：**`npm i -g fiz`
 
+1、用作替代fis3的命令：`fiz release -w`
+
+2、用以快速初始化开发项目
+
+`fiz clone web`：快速构建FIZ定制的PC或者mobile开发目录
+
+## FIZ规范的开发目录
+
+FIZ的开发目录结构：
 
 ```
 src           //存放该项目源码
@@ -22,8 +30,3 @@ README.md     //说明文档
 |
 fis-conf.js   //fis配置文件
 ```
-
-使用要点：
-
-- 必须在全局安装FIZ：`npm i -g fiz`
-- 使用jade模板语言时，还需在项目文件夹安装一个jade-highlighter插件：`npm i jade-highlighter`
