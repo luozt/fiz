@@ -44,7 +44,7 @@ cli.launch({
   //捕获命令行
   var command = argv["_"];
 
-  //git get项目
+  //fiz get项目
   if("get" == command[0]){
     //提供的服务
     var targetHash = {
@@ -69,9 +69,9 @@ cli.launch({
 
     console.log("start get [ " + cmd1 + " ]");
 
-    var child = exec("git get " + targetObj.url, function(err, stdout, stderr){
+    var child = exec("git clone " + targetObj.url, function(err, stdout, stderr){
       if(err){
-        console.log("git get err: " + err);
+        console.log("git clone err: " + err);
         return;
       }
 
