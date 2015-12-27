@@ -14,7 +14,7 @@ FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/�
 
 2、用以快速初始化开发项目：
 
-* `fiz clone web`：快速构建FIZ定制的PC或者mobile开发目录
+* `fiz get web`：快速构建FIZ定制的PC或者mobile开发目录。加参数`-n`则不新建文件夹
 
 ## FIZ规范的开发目录
 
