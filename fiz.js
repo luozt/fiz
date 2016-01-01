@@ -50,7 +50,7 @@ cli.launch({
     var targetHash = {
       "web": {
         name: "web-template",
-        url: "https://git.oschina.net/luozt007/web-template.git"
+        url: "https://github.com/luozt/web-template.git"
       }
     };
 
