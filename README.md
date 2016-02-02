@@ -31,3 +31,16 @@ README.md      //说明文档
 |
 fis-conf.js    //fis配置文件
 ```
+
+## 其他功能
+
+**mvDirContent: 移动文件夹内容**
+
+满足发布内容后需要对发布文件夹的文件进行移动的需求。
+
+```shell
+fiz mvDirContent --src ../lc/src --to ./ --clear ../lc
+```
+
+上述命令意思为：把文件夹`../lc/src`中的所有内容移动到当前目录`./`下，并且将`../lc/src`文件夹删除，并且完成后再删除`../lc`文件夹
+

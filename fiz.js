@@ -16,27 +16,6 @@ var cli = new Liftoff({
   }
 });
 
-//同步生成文件夹
-function mkdirsSync(dirpath, mode) {
-  if (!fs.existsSync(dirpath)) {
-    var pathtmp = "";
-    dirpath.split(path.sep).forEach(function(dirname) {
-      if (pathtmp) {
-        pathtmp = path.join(pathtmp, dirname);
-      } else {
-        pathtmp = dirname;
-      }
-
-      if (!fs.existsSync(pathtmp)) {
-        if (!fs.mkdirSync(pathtmp, mode)) {
-          return false;
-        }
-      }
-    });
-  }
-  return true;
-}
-
 cli.launch({
   cwd: argv.r || argv.root,
   configPath: argv.f || argv.file
@@ -100,7 +79,71 @@ cli.launch({
         }
       });
     });
+  }
 
+  // 移动文件夹，不支持文件
+  if("mvDirContent" == command[0]){
+    var childProcess, exec, dest, folder, child, cwd;
+
+    cwd = process.cwd();
+    folder = argv["src"];
+    dest = argv["to"];
+
+    if(!dest || "string" != typeof dest){
+      console.log("dest: "+dest+", operate destination required!");
+      return false;
+    }
+
+    if(!folder || "string" !== typeof folder){
+      folder = cwd;
+    }
+
+    childProcess = require("child_process");
+    exec = childProcess.exec;
+
+    if(!fs.existsSync(folder)){
+      console.log("source: "+folder+", not such a source Foler!");
+      return;
+    }
+
+    if("/" === folder.slice(-1)){
+      folder = folder.slice(0,-1);
+    }
+
+    console.log("source folder: "+folder);
+    console.log("destination folder: "+dest);
+
+    child = exec("mv -f "+folder+"/** "+dest, function(err, stdout){
+      var child2;
+
+      if(err){
+        console.log(err);
+        console.log("mv "+folder+" folder content error when execing: "+"mv -f "+folder+"/** "+dest);
+        return;
+      }
+
+      child2 = exec("rm -rf "+folder, function(err, stdout){
+        var child3, clearFolder;
+
+        if(err){
+          console.log(err);
+          console.log("rm "+folder+" folder error");
+          return;
+        }
+
+        // 检测是否还有要删除的文件夹
+        clearFolder = argv["clear"];
+        if(clearFolder){
+          child3 = exec("rm -rf "+clearFolder, function(err, stdout){
+            if(err){
+              console.log(err);
+              console.log("rm "+clearFolder+" folder error");
+              return;
+            }
+          });
+        }
+      });
+    });
   }
 
   //引用fis
