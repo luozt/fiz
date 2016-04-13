@@ -1,6 +1,6 @@
 {
   "name": "fiz",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "fiz integrates fis3 and fis3 plugins",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "fis-optimizer-htmlmin": "^0.1.2",
+    "fis-optimizer-png-compressor": "^0.1.5",
     "fis-parser-coffee-react": "^1.0.1",
     "fis-parser-jade": "0.0.12",
     "fis-parser-less": "^0.1.3",
