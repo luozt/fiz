@@ -30,6 +30,7 @@
     "fis-parser-coffee-react": "^1.0.1",
     "fis-parser-jade": "0.0.12",
     "fis-parser-less": "^0.1.3",
+    "fis-parser-react": "^0.13.3",
     "fis3": "^3.3.6",
     "fis3-deploy-local-supply": "0.0.1",
     "fis3-hook-relative": "^1.0.6",

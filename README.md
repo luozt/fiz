@@ -4,7 +4,7 @@
 
 FIZ整合了fis3和众多fis3插件，使开发者无需逐一安装多个fis3插件即可投身于开发中。FIZ包括有以下的组件fis3、fis-parser-coffee-react、fis-parser-less、fis-optimizer-htmlmin等，具体可查看package.json。
 
-FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/模板语言。
+FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/模板语言，新版本增加对react的jsx文件的编译。
 
 ## usage
 
