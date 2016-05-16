@@ -29,7 +29,7 @@ cli.launch({
     var targetHash = {
       "web": {
         name: "web-template",
-        url: "https://github.com/luozt/web-template.git"
+        url: "https://github.com/luozt/fiz-web-template.git"
       }
     };
 
