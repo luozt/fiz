@@ -27,10 +27,11 @@ cli.launch({
     // fiz get
     case "get":
       //提供的服务
+      var WEB_GIT_NAME = "fiz-web-template";
       var targetHash = {
         "web": {
-          name: "web-template",
-          url: "https://github.com/luozt/fiz-web-template.git"
+          name: WEB_GIT_NAME,
+          url: "https://github.com/luozt/"+WEB_GIT_NAME+".git"
         }
       };
 
