@@ -4,7 +4,7 @@
 
 FIZ整合了fis3和众多fis3插件，使开发者无需逐一安装多个fis3插件即可投身于开发中。FIZ包括有以下的组件fis3、fis-parser-coffee-react、fis-parser-less、fis-optimizer-htmlmin等，具体可查看package.json。
 
-FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/模板语言，现在又增加了对react的jsx文件的编译，类似webpack的require资源的支持！！
+FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/模板语言。
 
 ## usage
 
@@ -19,6 +19,8 @@ FIZ集合了众多插件，可用于编译LESS, coffee, jade等预编译语言/�
 * `fiz get web`：快速构建FIZ定制的PC或者mobile开发目录。加参数`-n`则不新建文件夹
 
 ### 本地安装使用
+
+本地安装：`npm i fiz --save-dev`
 
 结合package.json的scripts来使用，比如：
 

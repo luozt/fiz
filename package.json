@@ -1,17 +1,13 @@
 {
   "name": "fiz",
   "version": "1.4.4",
-  "description": "fiz integrates fis3 and fis3 plugins",
+  "description": "fiz integrates fis3 and fis3 plugins. Furthermore, it provides more functions to handle some subtle stuff.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "fiz": "fiz.js"
-  },
-  "engines": {
-    "node": "4.x",
-    "npm": "2.x"
   },
   "repository": {
     "type": "git",
@@ -30,27 +26,20 @@
   "license": "MIT",
   "dependencies": {
     "buffer": "^4.6.0",
-    "fis-mod": "^1.0.1",
     "fis-optimizer-htmlmin": "^0.1.2",
     "fis-optimizer-png-compressor": "^0.1.5",
     "fis-parser-coffee-react": "^1.0.1",
     "fis-parser-jade": "0.0.12",
     "fis-parser-less": "^0.1.3",
-    "fis-parser-react": "^0.13.3",
     "fis-postpackager-replace": "0.0.3",
     "fis3": "^3.3.6",
     "fis3-deploy-local-supply": "0.0.1",
-    "fis3-hook-commonjs": "^0.1.19",
-    "fis3-hook-node_modules": "^2.0.22",
     "fis3-hook-relative": "^1.0.6",
     "fis3-postpackager-loader": "^1.3.19",
-    "fis3-preprocessor-js-require-css": "^0.1.0",
-    "fis3-preprocessor-js-require-file": "^0.1.0",
     "is-buffer": "^1.1.3",
     "liftoff": "^2.2.0",
     "minimist": "^1.2.0",
-    "process": "^0.11.3",
-    "react-loader": "^2.4.0"
+    "process": "^0.11.3"
   },
   "bugs": {
     "url": "https://github.com/luozt/fiz/issues"
